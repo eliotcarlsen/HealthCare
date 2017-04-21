@@ -1,14 +1,14 @@
 var Doctor = require('./../js/doctors.js').doctorModule;
 
-var displayOutput = function (outputData){
-  $('#output').text(outputData);
+var displayDoctor = function (malady, doctorResults){
+  $('#output').text("Here are the doctors in your area that can treat " + malady + doctorResults);
 };
 
 $(document).ready(function(){
-  $('form#form').submit(function(event){
+  $('form#input').submit(function(event){
     event.preventDefault();
     var malady = $('#malady').val();
     var doctor = new Doctor();
-    doctor.output(malady);
+    doctor.getDoctors(malady, displayDoctor);
   });
 });
