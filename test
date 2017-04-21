@@ -1,0 +1,26 @@
+var Doctor = require('./../js/doctors.js').doctorModule;
+
+var displayDoctor = function (malady, doctorResults, specialtyResults){
+  $('#output').text("Here are the doctors in the Portland area that can help..." + "Your search word(s): " + "'" + malady + "'");
+  var i = 0;
+  doctorResults.forEach(function(doctor){
+    $('.bios').append("<div class='row'><div class='col-md-12'><div class='well'><img alt='doctor_image' src=" + doctor.image_url + "><br><h4>Name: " + doctor.first_name + " " + doctor.last_name + ", " + doctor.title + "</h4> <h5>Gender: " + doctor.gender + "<br><div class='specialties'></div><div class='body'><h5>Bio: <br>" + doctor.bio + "</h5></div></div></div><br>");
+    i = i + 1;
+    console.log(i);
+  });
+  specialtyResults.forEach(function(specialty){
+    $(".specialties['i']").append("<div class ='category'>Primary Specialty: " + specialty[0].name + "</div");
+    i = i + 1;
+    console.log(i);
+  });
+};
+
+$(document).ready(function(){
+  $('form#input').submit(function(event){
+    event.preventDefault();
+    $('.bios').empty();
+    var malady = $('#malady').val();
+    var doctor = new Doctor();
+    doctor.getDoctors(malady, displayDoctor);
+  });
+});
