@@ -1,4 +1,5 @@
-var Dino = require('./../js/doctors.js').doctorModule;
+var Doctor = require('./../js/doctors.js').doctorModule;
+
 var displayOutput = function (outputData){
   $('#output').text(outputData);
 };
@@ -6,8 +7,8 @@ var displayOutput = function (outputData){
 $(document).ready(function(){
   $('form#form').submit(function(event){
     event.preventDefault();
-    var malady = parseInt($('#malady').val());
+    var malady = $('#malady').val();
     var doctor = new Doctor();
-    doctor.output(malady, displayOutput);
+    doctor.output(malady);
   });
 });

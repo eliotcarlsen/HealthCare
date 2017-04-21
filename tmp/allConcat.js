@@ -1,4 +1,5 @@
-var Dino = require('./../js/dino.js').dinoModule;
+var Doctor = require('./../js/doctors.js').doctorModule;
+
 var displayOutput = function (outputData){
   $('#output').text(outputData);
 };
@@ -6,13 +7,8 @@ var displayOutput = function (outputData){
 $(document).ready(function(){
   $('form#form').submit(function(event){
     event.preventDefault();
-    var para = parseInt($('#para').val());
-    var word = parseInt($('#word').val());
-    var newDino = new Dino();
-    newDino.output(para,word,displayOutput);
+    var malady = $('#malady').val();
+    var doctor = new Doctor();
+    doctor.output(malady);
   });
-});
-
-$(document).ready(function(){
-  $('#time').text(moment());
 });
