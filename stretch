@@ -1,0 +1,3 @@
+result.data.forEach(function(hospital){
+  hospitalArray.push(hospital.practices);
+});
