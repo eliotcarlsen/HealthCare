@@ -12,7 +12,7 @@ var displayDoctor = function (malady, doctorResults, specialtyResults, practiceR
   }
   for (i = 0; i < practiceResults.length; i++){
     for (j = 0; j < practiceResults[i].length; j++){
-      $(".practice" + i).append("<div class='practiceOffices'><ul><li> " + practiceResults[i][j].visit_address.city + ", " + practiceResults[i][j].visit_address.state_long + "</li></ul><ul><li>" + practiceResults[i][j].visit_address.street + ", " + practiceResults[i][j].visit_address.zip + "</ul></li></div>");
+      $(".practice" + i).append("<div class='practiceOffices'><p> " + practiceResults[i][j].visit_address.city + ", " + practiceResults[i][j].visit_address.state_long + "</p><ul><li>" + practiceResults[i][j].visit_address.street + ", " + practiceResults[i][j].visit_address.zip + "</li><li>" + practiceResults[i][j].phones[0].number + "</li></ul></div>");
     }
   }
 };
